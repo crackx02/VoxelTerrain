@@ -48,3 +48,8 @@ runtime importing and voxelization of 3D models, terrain restriction systems and
 ### API Usage Examples
 
 For examples of how to use the voxel terrain scripting API, **feel free to dig through the scripts and files of the [VoxelTerrain Showcase](https://steamcommunity.com/sharedfiles/filedetails/?id=3575301562) mod!**
+
+### Note
+
+Voxel terrain in the tile editor is currently **NOT** supported by this mod.  
+Support for this may come eventually in an update, though priority for this is not very high at this moment.
