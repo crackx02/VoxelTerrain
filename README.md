@@ -15,7 +15,7 @@ This mod re-enables the hidden, unreleased, disabled voxel terrain system in Scr
 However, **that is not all!**  
 As the "vanilla" implementation was found to be somewhat disappointing (for example, the `terrainSphereModification` function throwing an error instead of allowing terrain to be placed back down!), the mod *also* **immediately and massively expands the system** in various ways by implementing a large custom Lua scripting API.  
 
-This API allows for a lot of modding freedom - terrain can be manipulated in a variety of shapes and ways, such as erasing terrain,  
+This API allows for a lot of modding freedom - terrain can be manipulated in a variety of shapes and ways, such as erasing terrain, 
 **placing terrain**, painting ground materials and even **importing and voxelizing 3D models!**
 
 There are also features for restricting the system, e.g. preventing players from digging out an important structure or object.
