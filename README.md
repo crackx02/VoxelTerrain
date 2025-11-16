@@ -22,6 +22,12 @@ This API allows for a lot of modding freedom - terrain can be manipulated in a v
 
 There are also features for restricting the system, e.g. preventing players from digging out an important structure or object.
 
+## Note about Multiplayer
+
+**This mod *is* fully multiplayer-compatible - however, any joining clients MUST have the DLL installed as well.  
+Also, on large or complex worlds, clients may fail to join - this is a problem in the game's netcode, not a fault of this mod.  
+The only fix for this is to make the world smaller (less voxel terrain).**
+
 ## Showcase Mod
 
 To showcase the gameplay side of things, a [VoxelTerrain Showcase](https://steamcommunity.com/sharedfiles/filedetails/?id=3575301562) mod has been uploaded to the Steam workshop.  
