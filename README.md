@@ -6,8 +6,10 @@
 
 <img width="1920" height="1080" alt="crystalCave2" src="https://github.com/user-attachments/assets/ee402a7c-91da-4c5e-be6b-a7fadbc251f9" />
 
+Showcase Video (click the image)  
 [![VoxelTerrain Video 1](http://img.youtube.com/vi/SrMF0JXCT84/0.jpg)](http://www.youtube.com/watch?v=SrMF0JXCT84 "VoxelTerrain 1")
 
+Showcase Video (click the image)  
 [![VoxelTerrain Video 2](http://img.youtube.com/vi/oaj2dcRYAw4/0.jpg)](http://www.youtube.com/watch?v=oaj2dcRYAw4 "VoxelTerrain 2")
 
 This mod re-enables the hidden, unreleased, disabled voxel terrain system in Scrap Mechanic.  
