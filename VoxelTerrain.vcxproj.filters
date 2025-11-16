@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Dependencies">
+      <UniqueIdentifier>{0003b8ca-7880-4a60-b4c8-694928cfbb2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SM">
+      <UniqueIdentifier>{243acdf1-033c-48e8-a40f-91b79f79b73c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\bullet3">
+      <UniqueIdentifier>{f8ead56c-3cc6-48a0-8dfc-d87e48737030}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\bullet3\LinearMath">
+      <UniqueIdentifier>{84707a3e-7e39-411c-8317-2ac7777ffd77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\bullet3\BulletCollision">
+      <UniqueIdentifier>{209ac586-1a3b-4583-9f78-ee4fa153682d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\bullet3\BulletCollision\CollisionShapes">
+      <UniqueIdentifier>{d1c3a482-9ea7-4fa1-af0b-62fccadaf2f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\bullet3\BulletCollision\BroadphaseCollision">
+      <UniqueIdentifier>{97b2b286-bf77-4518-b72d-74c4a4041331}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\bullet3\BulletCollision\CollisionDispatch">
+      <UniqueIdentifier>{8da0820e-948a-4822-ab67-b73425c7543b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies\bullet3\BulletCollision\NarrowPhaseCollision">
+      <UniqueIdentifier>{8edbbbe8-1734-41b6-8c19-2d78f77d2fd8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\xxHash-dev\xxh_x86dispatch.c">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\xxHash-dev\xxhash.c">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\MinHook\src\buffer.c">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\MinHook\src\hook.c">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\MinHook\src\trampoline.c">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\MinHook\src\hde\hde32.c">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\MinHook\src\hde\hde64.c">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SM\Console.cpp">
+      <Filter>SM</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SM\VoxelTerrainManager.cpp">
+      <Filter>SM</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SM\ResourceManager.cpp">
+      <Filter>SM</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SM\LuaVM.cpp">
+      <Filter>SM</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SM\wrap_VoxelTerrainGrid.cpp">
+      <Filter>SM</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SM\MyPlayer.cpp">
+      <Filter>SM</Filter>
+    </ClCompile>
+    <ClCompile Include="src\wrap_VoxelTerrain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\wrap_VoxelShared.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SM\LuaManager.cpp">
+      <Filter>SM</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SM\RenderStateManager.cpp">
+      <Filter>SM</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SM\ClientWorld.cpp">
+      <Filter>SM</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SM\VoxelTerrainWorld.cpp">
+      <Filter>SM</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AssemblyPatches.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SM\CreationManager.cpp">
+      <Filter>SM</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PhysicsUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SM\GameScript.cpp">
+      <Filter>SM</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ModDataManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RestrictionArea.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SM\ThreadContext.cpp">
+      <Filter>SM</Filter>
+    </ClCompile>
+    <ClCompile Include="src\wrap_RestrictionArea.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SM\DirectoryManager.cpp">
+      <Filter>SM</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MeshVoxelizer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\LinearMath\btAlignedAllocator.cpp">
+      <Filter>Dependencies\bullet3\LinearMath</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionShapes\btBvhTriangleMeshShape.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionShapes\btTriangleMesh.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionShapes\btCollisionShape.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionShapes\btTriangleMeshShape.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\BroadphaseCollision\btQuantizedBvh.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\BroadphaseCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionShapes\btTriangleIndexVertexArray.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionShapes\btStridingMeshInterface.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionShapes\btTriangleCallback.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionDispatch\btCollisionWorld.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionDispatch</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\LinearMath\btQuickprof.cpp">
+      <Filter>Dependencies\bullet3\LinearMath</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionDispatch\btCollisionObject.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionDispatch</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionDispatch\btManifoldResult.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionDispatch</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\NarrowPhaseCollision\btRaycastCallback.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\NarrowPhaseCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionShapes\btSphereShape.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\NarrowPhaseCollision\btGjkConvexCast.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\NarrowPhaseCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\NarrowPhaseCollision\btConvexCast.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\NarrowPhaseCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionShapes\btConvexInternalShape.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\NarrowPhaseCollision\btPersistentManifold.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\NarrowPhaseCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\NarrowPhaseCollision\btContinuousConvexCollision.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\NarrowPhaseCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\NarrowPhaseCollision\btSubSimplexConvexCast.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\NarrowPhaseCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionShapes\btConvexShape.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionShapes\btOptimizedBvh.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionShapes\btConcaveShape.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionShapes\btPolyhedralConvexShape.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\NarrowPhaseCollision\btGjkEpaPenetrationDepthSolver.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\NarrowPhaseCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\LinearMath\btVector3.cpp">
+      <Filter>Dependencies\bullet3\LinearMath</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\LinearMath\btConvexHullComputer.cpp">
+      <Filter>Dependencies\bullet3\LinearMath</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\LinearMath\btGeometryUtil.cpp">
+      <Filter>Dependencies\bullet3\LinearMath</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\CollisionShapes\btConvexPolyhedron.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\CollisionShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\NarrowPhaseCollision\btGjkPairDetector.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\NarrowPhaseCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\NarrowPhaseCollision\btVoronoiSimplexSolver.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\NarrowPhaseCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\bullet3\src\BulletCollision\NarrowPhaseCollision\btGjkEpa2.cpp">
+      <Filter>Dependencies\bullet3\BulletCollision\NarrowPhaseCollision</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Dependencies\MinHook\src\buffer.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\MinHook\src\trampoline.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\MinHook\src\hde\hde32.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\MinHook\src\hde\hde64.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\MinHook\src\hde\pstdint.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\MinHook\src\hde\table32.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\MinHook\src\hde\table64.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Util.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Types.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\Console.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\VoxelTerrainManager.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\TerrainGroundMaterialSet.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\VoxelTerrainWorld.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\XXHash.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\VoxelTerrainChunk.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\ResourceManager.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\LuaVM.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\wrap_VoxelTerrainGrid.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\VoxelTerrainGrid.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\VoxelTerrainConstants.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ModConstants.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\TextureResource.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\RaycastResult.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\MyPlayer.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\PhysicsProxy.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\PhysicsBase.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\TickDynamicsWorld.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\World.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\VoxelTerrainPhysicsProxy.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PhysicsUtils.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\wrap_VoxelTerrain.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\wrap_VoxelShared.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\LuaManager.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\Sphere.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\RenderStateManager.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\ClientWorld.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\VoxelUtils.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LuaUtils.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ApplySDFMethods.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\LuaUserdata.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AssemblyPatches.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Memory.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\LuaCallData.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\CreationManager.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\Aligned16Base.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\NetObj.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\RigidBody.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\GameScript.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ModDataManager.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\Bounds.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RestrictionArea.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\ThreadContext.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\LuaWorldScript.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\wrap_RestrictionArea.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MeshVoxelizer.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NullHash.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StringHash.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Texture.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\DirectoryManager.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\SRWLock.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\VoxelizerUtils.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SM\VoxelTerrainNetChunk.hpp">
+      <Filter>SM</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
