@@ -26,6 +26,9 @@ namespace DLL {
 
 			void initialize(bool createThread = true);
 
+			// Threads are killed by windows on process shutdown, causing a deadlock in Detach()
+			inline void onProcessShutdown() {m_voxelThreadData.closeThread = false;};
+
 			void importMesh(
 				uint16 world,
 				std::string& meshPath,
@@ -86,8 +89,10 @@ namespace DLL {
 
 			struct {
 				std::condition_variable cv;
-				std::future<void> handle;
+				//std::future<void> handle;
+				std::thread handle;
 				std::atomic_bool bShutdown = false;
+				bool closeThread = true;
 			} m_voxelThreadData;
 
 			LoadedMesh* m_loadMesh(const std::string& path);

@@ -459,9 +459,11 @@ static bool Attach() {
 	return true;
 }
 
-static void Detach() {
+static void Detach(bool processShutdown) {
 	if ( g_State.bMhInitialized ) {
 		g_State.bMhInitialized = false;
+		if ( processShutdown )
+			gVoxelizer->onProcessShutdown();
 		delete gVoxelizer;
 		delete gModDataManager;
 		MH_Uninitialize();
@@ -475,7 +477,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
 			break;
 		}
 		case DLL_PROCESS_DETACH:
-			Detach();
+			Detach(lpReserved != nullptr);
 	}
 	return TRUE;
 }

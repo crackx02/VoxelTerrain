@@ -87,8 +87,12 @@ void MeshVoxelizer::update() {
 void MeshVoxelizer::initialize(bool createThread) {
 	m_voxelThreadData.bShutdown = !createThread;
 	m_voxelThreadData.cv.notify_one();
-	if ( m_voxelThreadData.handle.valid() )
-		m_voxelThreadData.handle.wait();
+	if ( m_voxelThreadData.handle.joinable() )
+		if (m_voxelThreadData.closeThread)
+			m_voxelThreadData.handle.join();
+		else
+			// Thread is already dead on process shutdown, detach to avoid destructor deadlock
+			m_voxelThreadData.handle.detach();
 
 	m_vecProcessedChunks.clear();
 	m_importQueue.clear();
@@ -101,7 +105,7 @@ void MeshVoxelizer::initialize(bool createThread) {
 	m_mapLoadedMeshes.clear();
 
 	if ( createThread )
-		m_voxelThreadData.handle = std::async(
+		m_voxelThreadData.handle = std::thread(
 			[this](){
 				try {
 					SM_LOG("Voxelizer START");
