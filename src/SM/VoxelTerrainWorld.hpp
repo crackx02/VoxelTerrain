@@ -10,6 +10,7 @@
 #include "VoxelTerrainChunk.hpp"
 #include "VoxelTerrainPhysicsProxy.hpp"
 #include "Bounds.hpp"
+#include "VoxelTerrainNetChunk.hpp"
 
 namespace SM {
 	class VoxelTerrainWorld {
@@ -21,6 +22,8 @@ namespace SM {
 				ChunkFlag_SlotUsed = 0x1,
 				ChunkFlag_Updated = 0x2
 			};
+
+			static void ResolveOffsets();
 
 			inline uint16 getId() const {return m_pPhysicsBase->getWorld()->getID();};
 			inline PhysicsBase* getPhysicsBase() const {return m_pPhysicsBase;};
@@ -75,7 +78,9 @@ namespace SM {
 				)};
 			};
 
-			VoxelTerrainChunk* getOrCreateChunk(const i32Vec3& vChunkIndex, bool optional);
+			std::pair<VoxelTerrainChunk*, bool> getOrAllocateChunk(const i32Vec3& vChunkIndex, bool optional) const;
+			void createChunk(const i32Vec3& vChunkIndex, VoxelTerrainChunk* pChunk);
+
 			void createAndIterateChunksAndVoxels(const IntBounds& bounds, bool createChunks, bool clearEdgeVoxels, ChunkVoxelCallback&& cb);
 
 		private:
@@ -93,7 +98,8 @@ namespace SM {
 			VoxelTerrainChunk** m_pArrChunks;
 			char _pad6[0x10];
 			VoxelTerrainPhysicsProxy** m_pArrChunkProxies;
-			char _pad7[0xC8];
+			std::shared_ptr<VoxelTerrainNetChunk>* m_pArrNetChunks;
+			char _pad7[0xC0];
 			XXHashSet<i32Vec3> m_setChunksToUpdate;
 			char _pad8[0x40];
 	};

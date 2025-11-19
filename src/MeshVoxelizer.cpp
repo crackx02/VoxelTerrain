@@ -47,7 +47,7 @@ void MeshVoxelizer::update() {
 		if ( glm::any(glm::lessThan(chunk.index, bounds.min)) || glm::any(glm::greaterThan(chunk.index, bounds.max)) )
 			continue;
 
-		VoxelTerrainChunk* pChunk = pCurrentWorld->getOrCreateChunk(chunk.index, chunk.bSubtractive);
+		auto [pChunk, isAllocatedChunk] = pCurrentWorld->getOrAllocateChunk(chunk.index, chunk.bSubtractive);
 		if ( pChunk == nullptr )
 			continue;
 
@@ -79,7 +79,10 @@ void MeshVoxelizer::update() {
 			ClearChunkEdgeVoxels(*pChunk, vMinEdges, vMaxEdges);
 		}
 
-		pCurrentWorld->updateChunk(chunk.index);
+		if ( isAllocatedChunk )
+			pCurrentWorld->createChunk(chunk.index, pChunk);
+
+		pCurrentWorld->updateChunk(chunk.index, true);
 	}
 	m_vecProcessedChunks.clear();
 }

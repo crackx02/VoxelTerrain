@@ -30,6 +30,10 @@ VoxelTerrainChunk* VoxelTerrainManager::AllocateVoxelChunk() {
 	return pChunk;
 }
 
+void VoxelTerrainManager::ReleaseVoxelChunk(VoxelTerrainChunk* pChunk) {
+	free(pChunk);
+}
+
 void VoxelTerrainManager::loadStandardMaterialSet() {
 	ResolveGlobal(LoadVoxelMaterialSet);
 	std::string sPath = std::format("$CONTENT_{}{}", DLL::VoxelHelperModUuid, StandardMaterialSetPath);

@@ -5,6 +5,6 @@
 namespace DLL {
 	// VoxelTerrain helper mod has multiplayer & dll version checks
 	constexpr const char* VoxelHelperModUuid = "1cf785ff-18e3-40f9-89b5-d7816bf835f4";
-	constexpr const char* ModVersionString = "1.0.1";
-	constexpr int ModVersionInt = MAKE_VERSION(1, 0, 1);
+	constexpr const char* ModVersionString = "1.0.2";
+	constexpr int ModVersionInt = MAKE_VERSION(1, 0, 2);
 }

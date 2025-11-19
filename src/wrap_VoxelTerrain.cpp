@@ -783,7 +783,7 @@ int wrap_VoxelTerrain::importChunk(lua_State* L) {
 			worldBounds.max.x, worldBounds.max.y, worldBounds.max.z
 		);
 
-	VoxelTerrainChunk* pChunk = pVoxelWorld->getOrCreateChunk(vChunkIndex, false);
+	auto [pChunk, isAllocatedChunk] = pVoxelWorld->getOrAllocateChunk(vChunkIndex, false);
 	if ( pChunk == nullptr )
 		return luaL_error(L, "Failed to get chunk");
 
@@ -817,6 +817,8 @@ int wrap_VoxelTerrain::importChunk(lua_State* L) {
 	};
 	ClearChunkEdgeVoxels(*pChunk, vMinEdges, vMaxEdges);
 
+	if ( isAllocatedChunk )
+		pVoxelWorld->createChunk(vChunkIndex, pChunk);
 	pVoxelWorld->updateChunk(vChunkIndex);
 
 	return 0;
@@ -870,9 +872,9 @@ int wrap_VoxelTerrain::importSerializedChunk(lua_State* L) {
 		);
 	}
 
-	VoxelTerrainChunk* pWorldChunk = pVoxelWorld->getOrCreateChunk(vChunkIndex, false);
+	auto [pWorldChunk, isAllocatedChunk] = pVoxelWorld->getOrAllocateChunk(vChunkIndex, false);
 	if ( pWorldChunk == nullptr )
-		return 0;
+		return luaL_error(L, "Failed to get chunk");
 
 	VoxelTerrainChunk newChunk;
 	if ( !DeserializeChunk(data, newChunk) ) {
@@ -907,6 +909,8 @@ int wrap_VoxelTerrain::importSerializedChunk(lua_State* L) {
 	};
 	ClearChunkEdgeVoxels(*pWorldChunk, vMinEdges, vMaxEdges);
 
+	if ( isAllocatedChunk )
+		pVoxelWorld->createChunk(vChunkIndex, pWorldChunk);
 	pVoxelWorld->updateChunk(vChunkIndex);
 
 	return 0;

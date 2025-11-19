@@ -13,6 +13,7 @@ namespace SM {
 			inline static VoxelTerrainManager* Get() {return *_selfPtr;}
 
 			static VoxelTerrainChunk* AllocateVoxelChunk();
+			static void ReleaseVoxelChunk(VoxelTerrainChunk* pChunk);
 
 			inline VoxelTerrainWorld* getWorld(uint16 id) {
 				auto it = m_mapWorlds.find(id);

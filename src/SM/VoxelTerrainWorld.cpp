@@ -15,10 +15,19 @@ using namespace SM;
 using namespace VoxelConstants;
 using namespace DLL;
 
-constexpr uintptr Offset_CreateChunk = 0x0a39510;
+constexpr uintptr Offset_CreateChunk = 0x0a39200;
+constexpr uintptr Offset_CreateNetChunk = 0x0a35cb0;
 
-using CreateChunkFunc = uint32(*)(VoxelTerrainWorld*, bool, const i32Vec3*, VoxelTerrainChunk**);
+using CreateChunkFunc = uint32(*)(VoxelTerrainWorld*, void*, const i32Vec3*, VoxelTerrainChunk**);
 CreateChunkFunc g_CreateChunk = nullptr;
+
+using CreateNetChunkFunc = uint32(*)(VoxelTerrainWorld*, uint32);
+CreateNetChunkFunc g_CreateNetChunk = nullptr;
+
+void VoxelTerrainWorld::ResolveOffsets() {
+	ResolveGlobal(CreateChunk);
+	ResolveGlobal(CreateNetChunk);
+}
 
 
 
@@ -53,10 +62,18 @@ void VoxelTerrainWorld::updateChunk(const i32Vec3& vChunkIndex, bool makeDirtySp
 	if ( uChunkIndex != VoxelConstants::InvalidChunkIndex ) {
 		ChunkFlags flags = m_pArrChunkFlags[uChunkIndex];
 		if ( flags & ChunkFlag_SlotUsed ) {
-			m_pArrChunkFlags[uChunkIndex] = ChunkFlags(flags | ChunkFlag_Updated);;
+			m_pArrChunkFlags[uChunkIndex] = ChunkFlags(flags | ChunkFlag_Updated);
 			m_setChunksToUpdate.emplace(vChunkIndex);
-		}
-	}
+			
+			auto& netChunk = m_pArrNetChunks[uChunkIndex];
+			if ( !netChunk )
+				g_CreateNetChunk(this, uChunkIndex);
+			SM_ASSERT(netChunk);
+		} else
+			SM_ERROR("Attempt to update a chunk that is marked as unused {{{}, {}, {}}}", vChunkIndex.x, vChunkIndex.y, vChunkIndex.z);
+	} else
+		SM_ERROR("Attempt to update a nonexistent chunk {{{}, {}, {}}}", vChunkIndex.x, vChunkIndex.y, vChunkIndex.z);
+
 	if ( makeDirtySphere ) {
 		const float halfChunk = float(VoxelConstants::MetersPerChunkAxis / 2);
 		const Vec3 vCenter = Vec3(vChunkIndex) * float(VoxelConstants::MetersPerChunkAxis) + Vec3(halfChunk);
@@ -69,35 +86,39 @@ void VoxelTerrainWorld::updateChunk(const i32Vec3& vChunkIndex, bool makeDirtySp
 	}
 }
 
-VoxelTerrainChunk* VoxelTerrainWorld::getOrCreateChunk(const i32Vec3& vChunkIndex, bool optional) {
-	ResolveGlobal(CreateChunk);
-
+std::pair<VoxelTerrainChunk*, bool> VoxelTerrainWorld::getOrAllocateChunk(const i32Vec3& vChunkIndex, bool optional) const {
 	const IntBounds bounds = getChunkBounds();
 	if ( glm::any(glm::lessThan(vChunkIndex, bounds.min)) || glm::any(glm::greaterThan(vChunkIndex, bounds.max)) ) {
 		SM_ERROR("Chunk index out of bounds!! {{{}, {}, {}}}", vChunkIndex.x, vChunkIndex.y, vChunkIndex.z);
-		return nullptr;
+		return {nullptr, false};
 	}
 
 	uint32 uChunkIndex = getChunkIndex(vChunkIndex);
 	if ( uChunkIndex != InvalidChunkIndex ) {
 		VoxelTerrainChunk* pChunk = getChunk(uChunkIndex);
-		if ( pChunk != nullptr )
-			return pChunk;
+		if ( pChunk != nullptr ) {
+			return {pChunk, false};
+		}
 	}
 
-	if ( optional )
-		return nullptr;
-
-	VoxelTerrainChunk* pChunk = VoxelTerrainManager::AllocateVoxelChunk();
-
-	uChunkIndex = g_CreateChunk(this, true, &vChunkIndex, &pChunk);
-	if ( uChunkIndex == InvalidChunkIndex ) {
-		SM_ERROR("Voxel chunk allocation failed! Chunk index: {{{}, {}, {}}}", vChunkIndex.x, vChunkIndex.y, vChunkIndex.z);
-		// The game already deallocates the chunk if this happens
-		return nullptr;
+	if ( !optional ) {
+		VoxelTerrainChunk* pChunk = VoxelTerrainManager::AllocateVoxelChunk();
+		SM_ASSERT(pChunk && "Voxel chunk allocation failed");
+		return {pChunk, true};
 	}
 
-	return pChunk;
+	return {nullptr, false};
+}
+
+void VoxelTerrainWorld::createChunk(const i32Vec3& vChunkIndex, VoxelTerrainChunk* pChunk) {
+	const IntBounds bounds = getChunkBounds();
+	SM_ASSERT(!(glm::any(glm::lessThan(vChunkIndex, bounds.min)) || glm::any(glm::greaterThan(vChunkIndex, bounds.max))) && "Chunk index out of bounds!");
+
+	const uint32 uChunkIndex = g_CreateChunk(this, nullptr, &vChunkIndex, &pChunk);
+	if ( uChunkIndex == InvalidChunkIndex )
+		SM_ERROR("Voxel chunk creation failed! Chunk index: {{{}, {}, {}}}", vChunkIndex.x, vChunkIndex.y, vChunkIndex.z);
+		// The game already releases the chunk if this happens
+		//VoxelTerrainManager::ReleaseVoxelChunk(pChunk);
 }
 
 void VoxelTerrainWorld::createAndIterateChunksAndVoxels(const IntBounds& bounds, bool createChunks, bool clearEdgeVoxels, ChunkVoxelCallback&& cb) {
@@ -110,7 +131,7 @@ void VoxelTerrainWorld::createAndIterateChunksAndVoxels(const IntBounds& bounds,
 	ITERATE_BOUNDS_BEGIN(clampedBounds, cx, cy, cz)
 		const i32Vec3 vChunkIndex = {cx, cy, cz};
 
-		VoxelTerrainChunk* pChunk = getOrCreateChunk(vChunkIndex, !createChunks);
+		auto [pChunk, isAllocatedChunk] = getOrAllocateChunk(vChunkIndex, !createChunks);
 		if ( pChunk == nullptr )
 			continue;
 
@@ -137,6 +158,9 @@ void VoxelTerrainWorld::createAndIterateChunksAndVoxels(const IntBounds& bounds,
 			};
 			ClearChunkEdgeVoxels(*pChunk, vMinEdges, vMaxEdges);
 		}
+
+		if ( isAllocatedChunk )
+			createChunk(vChunkIndex, pChunk);
 
 		updateChunk(vChunkIndex, false);
 	ITERATE_BOUNDS_END;

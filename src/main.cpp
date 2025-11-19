@@ -86,8 +86,7 @@ static void(*O_VoxelTerrainNetChunk_Update)(VoxelTerrainNetChunk*) = nullptr;
 static void H_VoxelTerrainNetChunk_Update(VoxelTerrainNetChunk* self) {
 	uint32 prevRevision = self->getRevision();
 	O_VoxelTerrainNetChunk_Update(self);
-	if ( self->getRevision() > prevRevision )
-		gModDataManager->onChunkUpdated(self->getWorld(), self->getChunkIndex());
+	gModDataManager->onChunkUpdated(self->getWorld(), self->getChunkIndex());
 }
 
 static void*(*O_VoxelNodeTree)(void*, Vec3*, Vec3*, uint32) = nullptr;
@@ -322,6 +321,7 @@ static void H_InitializeConsole(void* pContraption, void* ptr) {
 	ResolveGlobal(Tick1);
 	ResolveGlobal(Tick2);
 	ResolveGlobal(Tick3);
+	VoxelTerrainWorld::ResolveOffsets();
 
 	gModDataManager = new ModDataManager();
 	gVoxelizer = new MeshVoxelizer();
@@ -462,7 +462,7 @@ static bool Attach() {
 static void Detach(bool processShutdown) {
 	if ( g_State.bMhInitialized ) {
 		g_State.bMhInitialized = false;
-		if ( processShutdown )
+		if ( processShutdown && gVoxelizer != nullptr )
 			gVoxelizer->onProcessShutdown();
 		delete gVoxelizer;
 		delete gModDataManager;
