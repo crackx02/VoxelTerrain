@@ -22,11 +22,20 @@ This API allows for a lot of modding freedom - terrain can be manipulated in a v
 
 There are also features for restricting the system, e.g. preventing players from digging out an important structure or object.
 
-## Note about Multiplayer
+## FAQ
 
-**This mod *is* fully multiplayer-compatible - however, any joining clients MUST have the DLL installed as well.  
-Also, on large or complex worlds, clients may fail to join - this is a problem in the game's netcode, not a fault of this mod.  
-The only fix for this is to make the world smaller (less voxel terrain).**
+**Q:** Does the Voxel Terrain DLL mod replace all terrain with Voxel Terrain?  
+**A:** No, it simply adds the ability for Blocks and Parts mods and Custom Games (such as the [Voxel Terrain Showcase Mod](https://steamcommunity.com/workshop/filedetails/?id=3575301562)) to create and manipulate Voxel Terrain!  
+\-  
+**Q:** Does this Voxel Terrain here work like the one showcased by Axolot for Chapter 2?  
+**A:** Yes, the DLL mod enables and expands the unfinished Voxel Terrain implementation hidden within the game's code.  
+\-  
+**Q:** Does the Voxel Terrain DLL mod allow using Voxel Terrain in the Tile Editor?  
+**A:** No, this is currently not supported. However, the DLL does provide Lua API functions usable for terraforming/sculpting/saving and loading chunks, etc. A basic example of this is present in the [Showcase Mod](https://steamcommunity.com/workshop/filedetails/?id=3575301562).  
+\-  
+**Q:** Is this mod multiplayer-compatible?  
+**A:** The mod **is** fully multiplayer-compatible, under the condition that both the host **and** client(s) have the DLL installed.  
+However, having a very large amount of voxel terrain in a world can cause the connection to fail, which is a problem in the game's code, not a fault of this mod.
 
 ## Showcase Mod
 
@@ -54,8 +63,3 @@ runtime importing and voxelization of 3D models, terrain restriction systems and
 ### API Usage Examples
 
 For examples of how to use the voxel terrain scripting API, **feel free to dig through the scripts and files of the [VoxelTerrain Showcase](https://steamcommunity.com/sharedfiles/filedetails/?id=3575301562) mod!**
-
-### Note
-
-Voxel terrain in the tile editor is currently **NOT** supported by this mod.  
-Support for this may come eventually in an update, though priority for this is not very high at this moment.
