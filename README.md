@@ -35,6 +35,7 @@ There are also features for restricting the system, e.g. preventing players from
 \-  
 **Q:** Is this mod multiplayer-compatible?  
 **A:** The mod **is** fully multiplayer-compatible, under the condition that both the host **and** client(s) have the DLL installed.  
+Note that, even if one side does not have the DLL, standard gameplay **will still work** - only the actual voxel terrain is affected by this.  
 However, having a very large amount of voxel terrain in a world can cause the connection to fail, which is a problem in the game's code, not a fault of this mod.
 
 ## Showcase Mod
