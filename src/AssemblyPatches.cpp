@@ -195,8 +195,8 @@ bool AssemblyPatches::Apply() {
 
 		uint8 arrNewBytes[PatchSize] = {
 			0x90, 0x90,
-			0x8B, 0xD1,			// mov edx, ecx
-			0x90, 0x90, 0x90
+			0x8B, 0x50, 0x74,	// mov edx, dword ptr [rax + 0x74]
+			0x90, 0x90
 		};
 
 		if ( !Memory::VerifyAndPatchBytes((void*)ResolveOffset(Offset_Patch_ApplyRenderMode), arrOldBytes, arrNewBytes, "ApplyRenderMode") )
