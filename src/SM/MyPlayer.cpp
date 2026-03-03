@@ -3,4 +3,4 @@
 
 using namespace SM;
 
-MyPlayer** MyPlayer::_selfPtr = (MyPlayer**)0x12675a8;
+MyPlayer** MyPlayer::_selfPtr = (MyPlayer**)0x1267508;

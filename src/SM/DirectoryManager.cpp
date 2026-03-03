@@ -9,7 +9,7 @@
 
 using namespace SM;
 
-DirectoryManager** DirectoryManager::_selfPtr = (DirectoryManager**)0x1267810;
+DirectoryManager** DirectoryManager::_selfPtr = (DirectoryManager**)0x1267770;
 
 bool DirectoryManager::resolvePath(const std::string& path, std::string& resolved) {
 	if ( path.find("..") != std::string::npos ) {

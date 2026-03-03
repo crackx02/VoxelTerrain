@@ -3,4 +3,4 @@
 
 using namespace SM;
 
-RenderStateManager** RenderStateManager::_selfPtr = (RenderStateManager**)0x1267820;
+RenderStateManager** RenderStateManager::_selfPtr = (RenderStateManager**)0x1267780;

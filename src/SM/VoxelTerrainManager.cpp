@@ -10,7 +10,7 @@
 using namespace SM;
 using namespace VoxelConstants;
 
-constexpr uintptr Offset_LoadVoxelMaterialSet = 0x07119a0;
+constexpr uintptr Offset_LoadVoxelMaterialSet = 0x0711980;
 constexpr TextureResourceLayout DifTextureLayout = TextureResourceLayout::BC3_R5G6B5A8_UNorm;
 constexpr TextureResourceLayout AsgTextureLayout = TextureResourceLayout::BC3_R5G6B5A8_UNorm;
 constexpr TextureResourceLayout NorTextureLayout = TextureResourceLayout::BC5_R8G8_UNorm;
@@ -20,7 +20,7 @@ LoadVoxelMaterialSetFunc g_LoadVoxelMaterialSet = nullptr;
 
 
 
-VoxelTerrainManager** VoxelTerrainManager::_selfPtr = (VoxelTerrainManager**)0x12676f8;
+VoxelTerrainManager** VoxelTerrainManager::_selfPtr = (VoxelTerrainManager**)0x1267658;
 
 VoxelTerrainChunk* VoxelTerrainManager::AllocateVoxelChunk() {
 	// Use malloc to match the game's allocator

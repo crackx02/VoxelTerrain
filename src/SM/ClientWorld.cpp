@@ -3,4 +3,4 @@
 
 using namespace SM;
 
-ClientWorld** ClientWorld::_selfPtr = (ClientWorld**)0x1267558;
+ClientWorld** ClientWorld::_selfPtr = (ClientWorld**)0x12674b8;

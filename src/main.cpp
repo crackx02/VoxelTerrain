@@ -42,22 +42,22 @@ using namespace SM;
 using namespace VoxelConstants;
 
 constexpr uintptr Offset_InitializeConsole = 0x02d7a80;
-constexpr uintptr Offset_C_VoxelTerrainManager = 0x070f930;
+constexpr uintptr Offset_C_VoxelTerrainManager = 0x070f910;
 constexpr uintptr Offset_LuaVM_SetupEnv = 0x054a7f0;
-constexpr uintptr Offset_ReadClassMemberString = 0x08a8050;
+constexpr uintptr Offset_ReadClassMemberString = 0x08a8030;
 constexpr uintptr Offset_MyPlayerRaycast = 0x042b290;
-constexpr uintptr Offset_BodyTerrainIntersectionTest = 0x0752900;
-constexpr uintptr Offset_RegisterUserdata = 0x054e1a0;
-constexpr uintptr Offset_InitWorld = 0x0705860;
-constexpr uintptr Offset_VoxelTerrainManager_RemoveWorld = 0x07106e0;
+constexpr uintptr Offset_BodyTerrainIntersectionTest = 0x07528e0;
+constexpr uintptr Offset_RegisterUserdata = 0x054e180;
+constexpr uintptr Offset_InitWorld = 0x0705840;
+constexpr uintptr Offset_VoxelTerrainManager_RemoveWorld = 0x07106c0;
 constexpr uintptr Offset_PlayStateLoad = 0x042c290;
 constexpr uintptr Offset_PlayStateCleanup = 0x042dab0;
 constexpr uintptr Offset_ContraptionRender = 0x02d9180;
-constexpr uintptr Offset_VoxelNodeTree = 0x0a31c10;
-constexpr uintptr Offset_Tick1 = 0x126763c;
-constexpr uintptr Offset_Tick2 = 0x1267638;
-constexpr uintptr Offset_Tick3 = 0x1267640;
-constexpr uintptr Offset_VoxelTerrainNetChunk_Update = 0x0fd7e00;
+constexpr uintptr Offset_VoxelNodeTree = 0x0a31ed0;
+constexpr uintptr Offset_Tick1 = 0x126759c;
+constexpr uintptr Offset_Tick2 = 0x1267598;
+constexpr uintptr Offset_Tick3 = 0x12675a0;
+constexpr uintptr Offset_VoxelTerrainNetChunk_Update = 0x0fd7d20;
 
 
 

@@ -7,7 +7,7 @@
 
 using namespace SM;
 
-constexpr uintptr Offset_LoadTexArray = 0x057b6a0;
+constexpr uintptr Offset_LoadTexArray = 0x057b680;
 
 using LoadTexArrayFunc = TextureResource * (*)(
 	ResourceManager*, const std::vector<std::string>*,
@@ -17,7 +17,7 @@ LoadTexArrayFunc g_LoadTexArray = nullptr;
 
 
 
-ResourceManager** ResourceManager::_selfPtr = (ResourceManager**)0x1267818;
+ResourceManager** ResourceManager::_selfPtr = (ResourceManager**)0x1267778;
 
 TextureResource* ResourceManager::createTextureArrayResource(
 	const std::vector<std::string>& vecFilePaths,

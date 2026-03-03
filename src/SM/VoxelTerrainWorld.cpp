@@ -15,8 +15,8 @@ using namespace SM;
 using namespace VoxelConstants;
 using namespace DLL;
 
-constexpr uintptr Offset_CreateChunk = 0x0a39200;
-constexpr uintptr Offset_CreateNetChunk = 0x0a35cb0;
+constexpr uintptr Offset_CreateChunk = 0x0a394c0;
+constexpr uintptr Offset_CreateNetChunk = 0x0a35f70;
 
 using CreateChunkFunc = uint32(*)(VoxelTerrainWorld*, void*, const i32Vec3*, VoxelTerrainChunk**);
 CreateChunkFunc g_CreateChunk = nullptr;

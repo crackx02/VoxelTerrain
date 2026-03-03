@@ -3,4 +3,4 @@
 
 using namespace SM;
 
-GameScript** GameScript::_selfPtr = (GameScript**)0x12677b8;
+GameScript** GameScript::_selfPtr = (GameScript**)0x1267718;

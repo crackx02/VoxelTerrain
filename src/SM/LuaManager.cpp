@@ -13,7 +13,7 @@ using GetCurrentWorldFunc = uint16(*)(LuaManager*, lua_State*, void*, bool);
 GetCurrentWorldFunc g_GetCurrentWorld = nullptr;
 
 
-LuaManager** LuaManager::_selfPtr = (LuaManager**)0x1267620;
+LuaManager** LuaManager::_selfPtr = (LuaManager**)0x1267580;
 
 uint16 LuaManager::getCurrentWorld(lua_State* L) {
 	ResolveGlobal(GetCurrentWorld);
